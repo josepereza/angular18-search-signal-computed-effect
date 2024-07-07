@@ -4,6 +4,7 @@
         <input #filter (input)="apiService.updateFilter(filter.value)"  class="form-control">
       </div>
       <div class="favorites">
+        <span>Mis favoritos :</span>
         @for (product of apiService.$favorites(); track product.id) {
           <img [src]="product.image" class=""  alt="cover_img"/>
         }
