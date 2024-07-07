@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="search">
+        <h3>Search </h3>
+        <input #filter (input)="apiService.updateFilter(filter.value)"  class="form-control">
+      </div>
+      <div class="favorites">
+        @for (product of apiService.$favorites(); track product.id) {
+          <img [src]="product.image" class=""  alt="cover_img"/>
+        }
+        <button (click)="apiService.clearFavorites()">🗑</button>
+      </div>
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+        @for (product of apiService.$products(); track product.id) {
+        <div class="col">
+          <div class="card ">
+            <div class="container-img">
+                            <img src={{product.image}} class="card-img-top img-fluid " alt="...">
+
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">{{product.title}}</h5>
+              <p class="card-text">{{product.description |  slice:0:36 }}</p>
+            </div>
+            <span>Price {{ product.price | currency }}</span>
+            <span (click)="apiService.addFavorite(product)">❤</span>
+          </div>
+        </div>
+    }
+      </div>
+</div>

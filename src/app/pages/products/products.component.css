@@ -1,0 +1,17 @@
+
+  
+
+.favorites {
+    justify-content: center;
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+  
+    > img {
+      height: 40px;
+    }
+  }
+  .container-img{
+    width: 70%;
+    margin: auto;
+  }
